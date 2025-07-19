@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HBD SAYANGG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      body {
+        background-color: #e0bbff;
+        background-image: url("c:\Users\Pongo\Downloads\Aesthetic Wallpaper Universe.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: "Courier New", monospace;
+        overflow: hidden;
+      }
+
+      .terminal {
+        background-color: rgba(0, 0, 0, 0.85);
+        color: #ff69b4;
+        border: 2px solid #800080;
+        box-shadow: 0 0 20px #800080;
+      }
+
+      .terminal button {
+        font-family: "Courier New", monospace;
+      }
+
+      .heart {
+        position: fixed;
+        top: -50px;
+        font-size: 24px;
+        animation: fall 5s linear infinite;
+        color: #ff69b4;
+        user-select: none;
+        z-index: 10;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex justify-center items-center h-screen relative">
+    <audio id="bg-music" loop>
+      <source
+        src="c:\Users\Pongo\Downloads\Tulus - Monokrom - [musicmu1.blogspot.co.id].mp3"
+        type="audio/mp3"
+      />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div
+      class="terminal px-6 py-5 rounded-xl text-left animate__animated animate__backInDown m-8 w-[360px] z-20"
+      id="kartu"
+    >
+      <p class="text-pink-400 text-sm mb-2">💜💜💜</p>
+      <h1 class="text-xl">HAPPY BIRTHDAY SAYANG</h1>
+      <h2
+        class="text-2xl font-bold text-purple-300 animate__animated animate__pulse animate__infinite"
+      >
+        Aiswara Najwa Thahira
+      </h2>
+      <p class="text-sm mt-3 text-pink-300">// klik tombol untuk lanjut</p>
+      <button
+        class="p-2 bg-purple-600 text-white rounded mt-5 hover:bg-purple-800 w-full animate__animated animate__delay-1s animate__tada"
+        onclick="ubahKartu()"
+      >
+        Klik Disini
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+
+      let kartu = document.getElementById("kartu");
+
+      function ubahKartu() {
+        const music = document.getElementById("bg-music");
+        music.play();
+
+        kartu.innerHTML = `
+          <p class="text-pink-400 text-sm mb-2">> PEKANBARU 31 JULI 2025</p>
+          <div class="text-purple-200 animate__animated animate__fadeIn text-justify leading-relaxed">
+            <p><strong>SELAMAT ULANG TAHUN SAYANGG🎉🎉</strong></p>
+            <p>SEMOGA DI UMUR KAMU YANG KE-20 INI KAMU SELALU MENDAPATKAN KEBAHAGIAAN, LANCAR SELALU REZEKINYA, SELALU DIBERIKAN KESEHATAN, TERCAPAI SEMUA KEINGINANNYA, UDAH GITU AJA AKU GA PANDAI MERANGKAI KATA KATA HEHE HADIAH MENYUSUL YA SAYANGG</p>
+            <p class="mt-2">WISH U ALL THE BEST</p>
+            <p class="mt-2">I LOVEE YOUU 💜💜💜</p>
+          </div>
+          <p class="mt-4 text-pink-300">// MAS DIMM</p>
+          <button
+            class="p-2 bg-gray-700 text-white rounded mt-5 hover:bg-gray-900 w-full animate__animated animate__delay-1s animate__tada"
+            onclick="refresh()"
+          >
+            exit()
+          </button>
+        `;
+      }
+
+      function refresh() {
+        location.reload();
+      }
+
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+        heart.innerText = "💜";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }, 300);
+    </script>
+  </body>
+</html>
